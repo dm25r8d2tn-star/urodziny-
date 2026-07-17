@@ -3,150 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wszystkiego najlepszego Amelia ❤️</title>
+<title>Dla Amelii ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+@keyframes fade{
+
+from{
+opacity:0;
+transform:scale(.9);
+}
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:28px;
+animation:heartFloat linear forwards;
+pointer-events:none;
+z-index:999;
+}
+
+@keyframes heartFloat{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+15%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+.confetti{
+
+position:fixed;
+
+width:10px;
+
+height:10px;
+
+top:-20px;
+
+animation:fall linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-20px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(120vh) rotate(720deg);
+
+}
+
+}
+
+#main{
+
+background:linear-gradient(135deg,#ffd8ea,#fff0f7,#ffffff);
+
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Poppins,sans-serif;
 }
 
 body{
+
+background:linear-gradient(135deg,#ffd8ea,#ffe9f5,#fff6fb);
+
+overflow:hidden;
+
 height:100vh;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
-background:linear-gradient(135deg,#ffd6e7,#ffc2dd,#ffe8f2);
-overflow:hidden;
+
 }
 
-.hearts{
+#login,#main{
+
 position:absolute;
+
 width:100%;
+
 height:100%;
-overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
 }
 
-.heart{
-position:absolute;
-font-size:25px;
-animation:up 8s linear infinite;
-opacity:.6;
-}
+#main{
 
-@keyframes up{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-120vh);}
-}
-
-#login,#gift{
-text-align:center;
-z-index:2;
-}
-
-input{
-padding:12px;
-font-size:22px;
-border-radius:12px;
-border:none;
-text-align:center;
-width:170px;
-}
-
-button{
-margin-top:15px;
-padding:12px 30px;
-border:none;
-border-radius:12px;
-background:#ff5fa2;
-color:white;
-font-size:20px;
-cursor:pointer;
-}
-
-#gift{
 display:none;
-animation:fade 1s;
+
+animation:fade 1.2s;
+
 }
 
-@keyframes fade{
-from{opacity:0;transform:scale(.8);}
-to{opacity:1;transform:scale(1);}
+.box{
+
+background:rgba(255,255,255,.75);
+
+backdrop-filter:blur(20px);
+
+padding:40px;
+
+border-radius:35px;
+
+width:340px;
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(255,105,180,.2);
+
+}
+
+.avatar{
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid white;
+
+margin-bottom:20px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
 }
 
 h1{
-font-size:42px;
-color:#ff2f7d;
+
+font-size:34px;
+
+color:#ff4f92;
+
 margin-bottom:20px;
+
 }
 
-p{
+input{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:18px;
+
 font-size:24px;
-color:#444;
-margin-top:15px;
+
+text-align:center;
+
+margin-top:10px;
+
+outline:none;
+
 }
 
-img{
-width:260px;
-border-radius:20px;
+button{
+
 margin-top:20px;
-box-shadow:0 0 20px rgba(0,0,0,.2);
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:18px;
+
+background:#ff4f92;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.3s;
+
 }
+
+button:hover{
+
+transform:scale(1.03);
+
+}
+
+#error{
+
+margin-top:15px;
+
+color:#ff3d74;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="hearts"></div>
-
 <div id="login">
-<h1>🔐</h1>
-<p>Wpisz kod</p><br>
-<input id="code" maxlength="4">
-<br>
-<button onclick="check()">Otwórz</button>
+
+<div class="box">
+
+<img src="profil.jpg" class="avatar">
+
+<h1>🔐 Wpisz kod</h1>
+
+<input id="pass" maxlength="4" type="password" placeholder="****">
+
+<button onclick="login()">
+
+Otwórz ❤️
+
+</button>
+
+<div id="error"></div>
+
 </div>
 
-<div id="gift">
-<h1>🎉 Wszystkiego najlepszego Amelia! 🎉</h1>
+</div>
 
-<p>Życzę Ci dużo szczęścia, zdrowia, uśmiechu i spełnienia wszystkich marzeń! 💖</p>
+<div id="main">
 
-<img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800">
+<h1>
+
+🎉 Wszystkiego najlepszego Amelia ❤️
+
+</h1>
+
+<p id="text"></p>
 
 </div>
 
 <script>
 
-for(let i=0;i<35;i++){
+function login(){
 
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="💖";
-
-h.style.left=Math.random()*100+"%";
-
-h.style.animationDelay=Math.random()*8+"s";
-
-document.querySelector(".hearts").appendChild(h);
-
-}
-
-function check(){
-
-if(document.getElementById("code").value=="2107"){
+if(document.getElementById("pass").value=="2107"){
 
 document.getElementById("login").style.display="none";
 
-document.getElementById("gift").style.display="block";
+document.getElementById("main").style.display="flex";
 
 }else{
 
-alert("Błędny kod ❤️");
+document.getElementById("error").innerHTML="❌ Zły kod";
 
 }
 
@@ -155,4 +318,5 @@ alert("Błędny kod ❤️");
 </script>
 
 </body>
+
 </html>
