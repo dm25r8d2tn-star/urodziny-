@@ -1,112 +1,85 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Dla Amelii ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 font-family:'Poppins',sans-serif;
-
 }
 
-html{
-
-scroll-behavior:smooth;
-
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000;
+color:#fff;
 }
 
 body{
-
-background:#000;
-
-overflow:hidden;
-
-height:100vh;
-
-color:white;
-
+position:relative;
 }
-
-/* ====================== */
 
 .screen{
-
 position:absolute;
-
-width:100%;
-
-height:100%;
-
+inset:0;
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 flex-direction:column;
-
+background:#000;
 transition:1s;
-
 }
 
-/* ====================== */
-
-#login{
-
-background:black;
-
-z-index:100;
-
+.hidden{
+opacity:0;
+pointer-events:none;
 }
+
+/* -------------------- */
+/* LOGIN */
+/* -------------------- */
 
 #login h1{
 
-font-size:42px;
+font-size:40px;
 
 margin-bottom:35px;
 
-letter-spacing:2px;
+font-weight:600;
 
-text-shadow:0 0 20px white;
+letter-spacing:2px;
 
 }
 
 #kod{
 
-width:220px;
+width:240px;
 
 padding:18px;
 
-font-size:28px;
+font-size:30px;
 
-border-radius:15px;
+text-align:center;
 
-border:2px solid #333;
+border-radius:18px;
+
+border:2px solid white;
 
 background:#111;
 
 color:white;
-
-text-align:center;
 
 outline:none;
 
@@ -116,13 +89,13 @@ outline:none;
 
 margin-top:25px;
 
-padding:15px 40px;
-
-border:none;
-
-border-radius:15px;
+padding:15px 45px;
 
 font-size:22px;
+
+border-radius:16px;
+
+border:none;
 
 cursor:pointer;
 
@@ -144,21 +117,21 @@ transform:scale(1.05);
 
 #blad{
 
-margin-top:20px;
+margin-top:18px;
 
-color:#ff7a7a;
+color:#ff6f6f;
 
 font-size:18px;
 
 }
 
-/* ====================== */
+/* -------------------- */
+/* ŻYCZENIA */
+/* -------------------- */
 
 #zyczenia{
 
 display:none;
-
-background:black;
 
 text-align:center;
 
@@ -170,75 +143,55 @@ padding:40px;
 
 font-size:48px;
 
-line-height:1.5;
+line-height:1.6;
 
-text-shadow:
+font-weight:700;
 
-0 0 20px hotpink,
-
-0 0 40px hotpink;
+text-shadow:0 0 25px rgba(255,255,255,.35);
 
 }
-/* ====================== */
-/* CZARNE SERCA */
 
-.heart{
+/* -------------------- */
+/* FILM */
+/* -------------------- */
+
+#film{
+
+display:none;
+
+overflow:hidden;
+
+}
+
+#film img{
 
 position:absolute;
 
-top:-60px;
+width:280px;
 
-font-size:28px;
+height:380px;
 
-pointer-events:none;
+object-fit:cover;
 
-opacity:.9;
+border-radius:18px;
 
-animation:fall linear forwards;
+border:5px solid white;
 
-filter:drop-shadow(0 0 10px #444);
-
-}
-
-@keyframes fall{
-
-0%{
-
-transform:translateY(-80px) rotate(0deg);
+box-shadow:0 0 40px rgba(255,255,255,.2);
 
 opacity:0;
 
-}
-
-10%{
-
-opacity:1;
+transition:1.3s;
 
 }
 
-100%{
-
-transform:translateY(120vh) rotate(360deg);
-
-opacity:0;
-
-}
-
-}
-
-/* ====================== */
+/* -------------------- */
+/* KOPERTA */
+/* -------------------- */
 
 #kopertaScreen{
 
 display:none;
-
-background:black;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
 
 }
 
@@ -246,13 +199,11 @@ flex-direction:column;
 
 position:relative;
 
-width:320px;
+width:330px;
 
 height:220px;
 
 cursor:pointer;
-
-transition:.6s;
 
 }
 
@@ -262,17 +213,15 @@ position:absolute;
 
 bottom:0;
 
-width:320px;
+width:330px;
 
 height:170px;
 
 background:#111;
 
-border:2px solid #333;
+border:2px solid #444;
 
-border-radius:0 0 14px 14px;
-
-z-index:2;
+border-radius:0 0 16px 16px;
 
 }
 
@@ -284,9 +233,9 @@ width:0;
 
 height:0;
 
-border-left:160px solid transparent;
+border-left:165px solid transparent;
 
-border-right:160px solid transparent;
+border-right:165px solid transparent;
 
 border-top:110px solid #222;
 
@@ -302,13 +251,13 @@ z-index:5;
 
 position:absolute;
 
-left:15px;
+left:20px;
 
-top:65px;
+top:70px;
 
 width:290px;
 
-height:180px;
+height:185px;
 
 background:white;
 
@@ -316,63 +265,180 @@ color:black;
 
 border-radius:12px;
 
-padding:20px;
-
-font-size:18px;
-
-line-height:1.5;
+padding:18px;
 
 text-align:center;
 
-transform:translateY(90px);
+line-height:1.5;
+
+font-size:18px;
+
+transform:translateY(95px);
 
 transition:1s;
 
-z-index:1;
+z-index:2;
 
 }
 
 #dalej{
 
-margin-top:15px;
+margin-top:18px;
 
-padding:12px 28px;
-
-border:none;
-
-border-radius:12px;
+padding:12px 30px;
 
 background:black;
 
 color:white;
 
-font-size:18px;
+border:none;
+
+border-radius:12px;
 
 cursor:pointer;
 
+font-size:18px;
+
 }
+
+#koniec{
+
+display:none;
+
+font-size:58px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+text-align:center;
+
+text-shadow:0 0 25px rgba(255,255,255,.4);
+
+}
+/* -------------------- */
+/* ANIMACJE */
+/* -------------------- */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes fadeOut{
+
+from{
+opacity:1;
+}
+
+to{
+opacity:0;
+}
+
+}
+
+@keyframes zoom{
+
+0%{
+transform:scale(.9);
+opacity:0;
+}
+
+15%{
+opacity:1;
+}
+
+85%{
+opacity:1;
+}
+
+100%{
+transform:scale(1.1);
+opacity:0;
+}
+
+}
+
+@keyframes flash{
+
+0%,100%{
+opacity:0;
+}
+
+50%{
+opacity:.08;
+}
+
+}
+
+.flash{
+
+position:absolute;
+
+inset:0;
+
+background:white;
+
+opacity:0;
+
+pointer-events:none;
+
+animation:flash 4s infinite;
+
+mix-blend-mode:screen;
+
+}
+
+.grain{
+
+position:absolute;
+
+inset:0;
+
+opacity:.05;
+
+background-image:
+radial-gradient(circle,#fff 1px,transparent 1px);
+
+background-size:6px 6px;
+
+pointer-events:none;
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- EKRAN Z KODEM -->
+<div class="flash"></div>
+
+<div class="grain"></div>
+
+<!-- LOGIN -->
 
 <div id="login" class="screen">
 
 <h1>🔒 Wpisz kod 🔒</h1>
 
 <input
-type="password"
 id="kod"
+type="password"
 maxlength="4"
 placeholder="2107">
 
 <button id="otworz">
-
 Otwórz ❤️
-
 </button>
 
 <p id="blad"></p>
@@ -394,6 +460,10 @@ Kocham Cię mocno!! ❤️
 </h1>
 
 </div>
+
+<!-- FILM -->
+
+<div id="film" class="screen"></div>
 
 <!-- KOPERTA -->
 
@@ -417,7 +487,7 @@ Kocham Cię mocno!! ❤️
 
 <button id="dalej">
 
-Dalej ❤️
+Zamknij ❤️
 
 </button>
 
@@ -427,171 +497,30 @@ Dalej ❤️
 
 </div>
 
+<div id="koniec" class="screen">
+
+hbd bby lovu 🤍
+
+</div>
+
 <script>
 // =========================
-// SPADAJĄCE CZARNE SERCA
+// ELEMENTY
 // =========================
 
-function serca(){
+const login = document.getElementById("login");
+const zyczenia = document.getElementById("zyczenia");
+const film = document.getElementById("film");
+const kopertaScreen = document.getElementById("kopertaScreen");
+const koniec = document.getElementById("koniec");
 
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML="🖤";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=(20+Math.random()*25)+"px";
-
-heart.style.animationDuration=(5+Math.random()*5)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},10000);
-
-}
-
-setInterval(serca,300);
-
-// =========================
-// LOGOWANIE
-// =========================
-
-const login=document.getElementById("login");
-
-const zyczenia=document.getElementById("zyczenia");
-
-const koperta=document.getElementById("kopertaScreen");
-
-const kod=document.getElementById("kod");
-
-const przycisk=document.getElementById("otworz");
-
-const blad=document.getElementById("blad");
-
-przycisk.onclick=function(){
-
-if(kod.value==="2107"){
-
-login.style.opacity="0";
-
-setTimeout(()=>{
-
-login.style.display="none";
-
-zyczenia.style.display="flex";
-
-},800);
-
-setTimeout(()=>{
-
-zyczenia.style.opacity="0";
-
-setTimeout(()=>{
-
-zyczenia.style.display="none";
-
-koperta.style.display="flex";
-
-},800);
-
-},4500);
-
-}else{
-
-blad.innerHTML="Niepoprawny kod ❤️";
-
-}
-
-};
-// =========================
-// Otwieranie koperty
-// =========================
+const kod = document.getElementById("kod");
+const otworz = document.getElementById("otworz");
+const blad = document.getElementById("blad");
 
 const klapka = document.getElementById("klapka");
 const list = document.getElementById("list");
 const dalej = document.getElementById("dalej");
-
-let otwarta = false;
-
-document.getElementById("koperta").onclick = function(){
-
-if(otwarta) return;
-
-otwarta = true;
-
-klapka.style.transform = "rotateX(180deg)";
-
-setTimeout(()=>{
-
-list.style.transform = "translateY(-90px)";
-
-},500);
-
-};
-
-// =========================
-// Przejście do filmu
-// =========================
-
-dalej.onclick = function(){
-
-koperta.style.opacity = "0";
-
-setTimeout(()=>{
-
-koperta.style.display = "none";
-
-film.style.display = "flex";
-
-startPokaz();
-
-},800);
-
-};
-// =========================
-// EKRAN FILMU
-// =========================
-
-const film = document.createElement("div");
-
-film.id = "film";
-
-film.style.position = "fixed";
-film.style.left = "0";
-film.style.top = "0";
-film.style.width = "100%";
-film.style.height = "100%";
-film.style.background = "#000";
-film.style.display = "none";
-film.style.justifyContent = "center";
-film.style.alignItems = "center";
-film.style.overflow = "hidden";
-film.style.flexDirection = "column";
-
-document.body.appendChild(film);
-
-// =========================
-// KONIEC
-// =========================
-
-const koniec = document.createElement("h1");
-
-koniec.innerHTML = "hbd bby lovu❤️";
-
-koniec.style.position = "absolute";
-koniec.style.color = "white";
-koniec.style.fontSize = "55px";
-koniec.style.textAlign = "center";
-koniec.style.opacity = "0";
-koniec.style.transition = "1s";
-
-film.appendChild(koniec);
 
 // =========================
 // ZDJĘCIA
@@ -621,80 +550,209 @@ const zdjecia = [
 "20.jpg"
 
 ];
+
 // =========================
-// POKAZ ZDJĘĆ
+// LOGOWANIE
 // =========================
 
-let indeks = 0;
+otworz.onclick = ()=>{
 
-function pokazZdjecie() {
+if(kod.value!="2107"){
 
-    if (indeks >= zdjecia.length) {
+blad.innerHTML="Niepoprawny kod ❤️";
 
-        koniec.style.opacity = "1";
+return;
+
+}
+
+login.style.display="none";
+
+zyczenia.style.display="flex";
+
+setTimeout(()=>{
+
+zyczenia.style.display="none";
+
+film.style.display="flex";
+
+startFilm();
+
+},4500);
+
+};
+
+// =========================
+// FILM
+// =========================
+
+let indeks=0;
+
+function startFilm(){
+
+pokazZdjecie();
+
+}
+
+function pokazZdjecie(){
+
+if(indeks>=zdjecia.length){
+
+film.style.display="none";
+
+kopertaScreen.style.display="flex";
+
+return;
+
+}
+
+const img=document.createElement("img");
+
+img.src=zdjecia[indeks];
+
+img.style.left="50%";
+img.style.top="50%";
+img.style.transform="translate(-50%,-50%) scale(.9)";
+img.style.animation="zoom 3.5s linear";
+
+film.appendChild(img);
+
+setTimeout(()=>{
+
+img.remove();
+
+indeks++;
+
+pokazZdjecie();
+
+},3500);
+
+}
+// =========================
+// KOPERTA
+// =========================
+
+let otwarta = false;
+
+document.getElementById("koperta").onclick = function(){
+
+    if(otwarta) return;
+
+    otwarta = true;
+
+    klapka.style.transform = "rotateX(180deg)";
+
+    setTimeout(()=>{
+
+        list.style.transform = "translateY(-120px)";
+
+    },500);
+
+};
+
+// =========================
+// ZAKOŃCZENIE
+// =========================
+
+dalej.onclick = ()=>{
+
+    list.style.opacity="0";
+
+    klapka.style.opacity="0";
+
+    setTimeout(()=>{
+
+        kopertaScreen.style.display="none";
+
+        koniec.style.display="flex";
+
+        koniec.style.animation="fadeIn 2s forwards";
+
+    },1200);
+
+};
+
+// =========================
+// DODATKOWY EFEKT FILMU
+// =========================
+
+setInterval(()=>{
+
+    if(film.style.display==="flex"){
+
+        film.style.filter="brightness(.95)";
+
+        setTimeout(()=>{
+
+            film.style.filter="brightness(1)";
+
+        },120);
+
+    }
+
+},3500);
+
+// =========================
+// LOSOWY OBRÓT ZDJĘĆ
+// =========================
+
+const staryPokaz = pokazZdjecie;
+
+pokazZdjecie = function(){
+
+    if(indeks>=zdjecia.length){
+
+        film.style.display="none";
+
+        kopertaScreen.style.display="flex";
 
         return;
 
     }
 
-    const img = document.createElement("img");
+    const img=document.createElement("img");
 
-    img.src = zdjecia[indeks];
+    img.src=zdjecia[indeks];
 
-    img.style.position = "absolute";
-    img.style.width = "260px";
-    img.style.height = "360px";
-    img.style.objectFit = "cover";
-    img.style.borderRadius = "18px";
-    img.style.border = "4px solid white";
-    img.style.boxShadow = "0 0 35px rgba(255,255,255,.25)";
-    img.style.opacity = "0";
-    img.style.transform = "scale(.8)";
-    img.style.transition = "1.2s";
+    img.style.left="50%";
+    img.style.top="50%";
+
+    const rot=(Math.random()*10)-5;
+
+    img.style.transform=`translate(-50%,-50%) rotate(${rot}deg) scale(.9)`;
+
+    img.style.animation="zoom 3.5s linear";
 
     film.appendChild(img);
 
-    setTimeout(() => {
-
-        img.style.opacity = "1";
-        img.style.transform = "scale(1)";
-
-    }, 100);
-
-    setTimeout(() => {
-
-        img.style.opacity = "0";
-        img.style.transform = "scale(1.15)";
-
-    }, 2600);
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         img.remove();
 
-    }, 3800);
+        indeks++;
 
-    indeks++;
+        pokazZdjecie();
 
-    setTimeout(pokazZdjecie, 3000);
+    },3500);
 
-}
-
+};
 // =========================
-// START FILMU
+// START
 // =========================
 
-function startPokaz() {
+kod.addEventListener("keydown",(e)=>{
 
-    indeks = 0;
+    if(e.key==="Enter"){
 
-    koniec.style.opacity = "0";
+        otworz.click();
 
-    pokazZdjecie();
+    }
 
-}
+});
+
+// ustaw fokus na pole z kodem
+kod.focus();
+
 </script>
 
 </body>
-
 </html>
