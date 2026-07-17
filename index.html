@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wszystkiego najlepszego Amelia ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffc2dd,#ffe8f2);
+overflow:hidden;
+}
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:up 8s linear infinite;
+opacity:.6;
+}
+
+@keyframes up{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120vh);}
+}
+
+#login,#gift{
+text-align:center;
+z-index:2;
+}
+
+input{
+padding:12px;
+font-size:22px;
+border-radius:12px;
+border:none;
+text-align:center;
+width:170px;
+}
+
+button{
+margin-top:15px;
+padding:12px 30px;
+border:none;
+border-radius:12px;
+background:#ff5fa2;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+#gift{
+display:none;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+h1{
+font-size:42px;
+color:#ff2f7d;
+margin-bottom:20px;
+}
+
+p{
+font-size:24px;
+color:#444;
+margin-top:15px;
+}
+
+img{
+width:260px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div id="login">
+<h1>🔐</h1>
+<p>Wpisz kod</p><br>
+<input id="code" maxlength="4">
+<br>
+<button onclick="check()">Otwórz</button>
+</div>
+
+<div id="gift">
+<h1>🎉 Wszystkiego najlepszego Amelia! 🎉</h1>
+
+<p>Życzę Ci dużo szczęścia, zdrowia, uśmiechu i spełnienia wszystkich marzeń! 💖</p>
+
+<img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800">
+
+</div>
+
+<script>
+
+for(let i=0;i<35;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="💖";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDelay=Math.random()*8+"s";
+
+document.querySelector(".hearts").appendChild(h);
+
+}
+
+function check(){
+
+if(document.getElementById("code").value=="2107"){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("gift").style.display="block";
+
+}else{
+
+alert("Błędny kod ❤️");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
