@@ -1,309 +1,700 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dla Amelii ❤️</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 body{
-    overflow:hidden;
-    height:100vh;
-    background:linear-gradient(180deg,#ff9ac2,#ffc2da,#ffe9f3);
+
+background:#000;
+
+overflow:hidden;
+
+height:100vh;
+
+color:white;
+
 }
 
-/* ===== EKRAN LOGOWANIA ===== */
+/* ====================== */
+
+.screen{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+transition:1s;
+
+}
+
+/* ====================== */
 
 #login{
-    position:absolute;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:10;
+
+background:black;
+
+z-index:100;
+
 }
 
 #login h1{
-    color:white;
-    font-size:50px;
-    margin-bottom:20px;
-    text-shadow:0 0 20px hotpink;
+
+font-size:42px;
+
+margin-bottom:35px;
+
+letter-spacing:2px;
+
+text-shadow:0 0 20px white;
+
 }
 
-#login p{
-    color:white;
-    font-size:22px;
-    margin-bottom:20px;
+#kod{
+
+width:220px;
+
+padding:18px;
+
+font-size:28px;
+
+border-radius:15px;
+
+border:2px solid #333;
+
+background:#111;
+
+color:white;
+
+text-align:center;
+
+outline:none;
+
 }
 
-input{
-    width:220px;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    text-align:center;
-    font-size:22px;
+#otworz{
+
+margin-top:25px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:15px;
+
+font-size:22px;
+
+cursor:pointer;
+
+background:white;
+
+color:black;
+
+font-weight:600;
+
+transition:.3s;
+
 }
 
-button{
-    margin-top:20px;
-    padding:15px 35px;
-    border:none;
-    border-radius:12px;
-    background:#ff2e63;
-    color:white;
-    font-size:22px;
-    cursor:pointer;
-    transition:.3s;
-}
+#otworz:hover{
 
-button:hover{
-    transform:scale(1.08);
+transform:scale(1.05);
+
 }
 
 #blad{
-    margin-top:15px;
-    color:white;
-    font-size:20px;
+
+margin-top:20px;
+
+color:#ff7a7a;
+
+font-size:18px;
+
 }
 
-/* ===== GŁÓWNA STRONA ===== */
+/* ====================== */
 
-#main{
-    display:none;
-    width:100%;
-    height:100%;
-    justify-content:center;
-    align-items:center;
+#zyczenia{
+
+display:none;
+
+background:black;
+
+text-align:center;
+
+padding:40px;
+
 }
 
-.box{
-    text-align:center;
-    z-index:20;
-}
+#zyczenia h1{
 
-.box h1{
-    font-size:60px;
-    color:white;
-    text-shadow:0 0 15px deeppink;
-    animation:pulse 2s infinite;
-}
+font-size:48px;
 
-.box p{
-    margin-top:20px;
-    color:white;
-    font-size:24px;
-}
+line-height:1.5;
 
-/* ===== SPADAJĄCE SERCA ===== */
+text-shadow:
+
+0 0 20px hotpink,
+
+0 0 40px hotpink;
+
+}
+/* ====================== */
+/* CZARNE SERCA */
 
 .heart{
-    position:absolute;
-    top:-50px;
-    pointer-events:none;
-    animation:fall linear forwards;
-}
 
-/* ===== GWIAZDKI ===== */
+position:absolute;
 
-.star{
-    position:absolute;
-    color:white;
-    animation:blink 2s infinite;
-    pointer-events:none;
-}
+top:-60px;
 
-/* ===== ANIMACJE ===== */
+font-size:28px;
 
-@keyframes pulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-}
+pointer-events:none;
 
-@keyframes blink{
-    0%,100%{opacity:.2;}
-    50%{opacity:1;}
+opacity:.9;
+
+animation:fall linear forwards;
+
+filter:drop-shadow(0 0 10px #444);
+
 }
 
 @keyframes fall{
-    from{
-        transform:translateY(-60px) rotate(0deg);
-    }
-    to{
-        transform:translateY(110vh) rotate(360deg);
-    }
+
+0%{
+
+transform:translateY(-80px) rotate(0deg);
+
+opacity:0;
+
 }
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ====================== */
+
+#kopertaScreen{
+
+display:none;
+
+background:black;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
 #koperta{
-    position:relative;
-    width:320px;
-    height:220px;
-    margin:auto;
-    cursor:pointer;
+
+position:relative;
+
+width:320px;
+
+height:220px;
+
+cursor:pointer;
+
+transition:.6s;
+
 }
 
-.dol{
-    position:absolute;
-    width:320px;
-    height:170px;
-    bottom:0;
-    background:#ff4f80;
-    border-radius:0 0 15px 15px;
+#kopertaDol{
+
+position:absolute;
+
+bottom:0;
+
+width:320px;
+
+height:170px;
+
+background:#111;
+
+border:2px solid #333;
+
+border-radius:0 0 14px 14px;
+
+z-index:2;
+
 }
 
-.gora{
-    position:absolute;
-    width:0;
-    height:0;
-    border-left:160px solid transparent;
-    border-right:160px solid transparent;
-    border-top:110px solid #ff7aa5;
-    transform-origin:top;
-    transition:1s;
-    z-index:3;
+#klapka{
+
+position:absolute;
+
+width:0;
+
+height:0;
+
+border-left:160px solid transparent;
+
+border-right:160px solid transparent;
+
+border-top:110px solid #222;
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:5;
+
 }
 
 #list{
-    position:absolute;
-    left:20px;
-    top:50px;
-    width:280px;
-    height:150px;
-    background:white;
-    border-radius:10px;
-    padding:15px;
-    text-align:center;
-    transition:1s;
-    z-index:2;
+
+position:absolute;
+
+left:15px;
+
+top:65px;
+
+width:290px;
+
+height:180px;
+
+background:white;
+
+color:black;
+
+border-radius:12px;
+
+padding:20px;
+
+font-size:18px;
+
+line-height:1.5;
+
+text-align:center;
+
+transform:translateY(90px);
+
+transition:1s;
+
+z-index:1;
+
+}
+
+#dalej{
+
+margin-top:15px;
+
+padding:12px 28px;
+
+border:none;
+
+border-radius:12px;
+
+background:black;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
 }
 </style>
+
 </head>
 
 <body>
 
-<div id="login">
+<!-- EKRAN Z KODEM -->
 
-<h1>❤️ Tajemnicza Niespodzianka ❤️</h1>
+<div id="login" class="screen">
 
-<p>Wpisz kod</p>
+<h1>🔒 Wpisz kod 🔒</h1>
 
 <input
-id="kod"
 type="password"
-placeholder="****">
+id="kod"
+maxlength="4"
+placeholder="2107">
 
-<button onclick="sprawdz()">
+<button id="otworz">
+
 Otwórz ❤️
+
 </button>
 
 <p id="blad"></p>
 
 </div>
 
-<div id="main">
+<!-- ŻYCZENIA -->
 
-<div class="box">
+<div id="zyczenia" class="screen">
 
-<div id="koperta" onclick="otworzKoperte()">
+<h1>
 
-<div class="gora"></div>
+Wszystkiego najlepszego myszko!! ❤️
 
-<div class="dol"></div>
+<br><br>
+
+Kocham Cię mocno!! ❤️
+
+</h1>
+
+</div>
+
+<!-- KOPERTA -->
+
+<div id="kopertaScreen" class="screen">
+
+<div id="koperta">
+
+<div id="klapka"></div>
+
+<div id="kopertaDol"></div>
 
 <div id="list">
 
-<h2> Dla Amelii 🩷</h2>
+💌
 
-<p>Kliknij jeszcze raz, aby otworzyć list 🩷</p>
+<br><br>
+
+Życzę Ci żebyś zawsze miała przy sobie ludzi którzy będą kochać Cię tak mocno jak na to zasługujesz i żebyś nigdy nie zapomniała jaka jesteś wyjątkowa ❤️
+
+<br><br>
+
+<button id="dalej">
+
+Dalej ❤️
+
+</button>
+
+</div>
 
 </div>
 
 </div>
 
-</div>
+<script>
+// =========================
+// SPADAJĄCE CZARNE SERCA
+// =========================
 
+function serca(){
 
+const heart=document.createElement("div");
 
+heart.className="heart";
 
+heart.innerHTML="🖤";
 
+heart.style.left=Math.random()*100+"vw";
 
+heart.style.fontSize=(20+Math.random()*25)+"px";
 
-</div>
- <script>
+heart.style.animationDuration=(5+Math.random()*5)+"s";
 
-function sprawdz(){
+document.body.appendChild(heart);
 
-    const kod=document.getElementById("kod").value;
+setTimeout(()=>{
 
-    if(kod==="2107"){
-        document.getElementById("login").style.display="none";
-        document.getElementById("main").style.display="flex";
-    }else{
-        document.getElementById("blad").innerHTML="❌ Niepoprawny kod!";
+heart.remove();
+
+},10000);
+
+}
+
+setInterval(serca,300);
+
+// =========================
+// LOGOWANIE
+// =========================
+
+const login=document.getElementById("login");
+
+const zyczenia=document.getElementById("zyczenia");
+
+const koperta=document.getElementById("kopertaScreen");
+
+const kod=document.getElementById("kod");
+
+const przycisk=document.getElementById("otworz");
+
+const blad=document.getElementById("blad");
+
+przycisk.onclick=function(){
+
+if(kod.value==="2107"){
+
+login.style.opacity="0";
+
+setTimeout(()=>{
+
+login.style.display="none";
+
+zyczenia.style.display="flex";
+
+},800);
+
+setTimeout(()=>{
+
+zyczenia.style.opacity="0";
+
+setTimeout(()=>{
+
+zyczenia.style.display="none";
+
+koperta.style.display="flex";
+
+},800);
+
+},4500);
+
+}else{
+
+blad.innerHTML="Niepoprawny kod ❤️";
+
+}
+
+};
+// =========================
+// Otwieranie koperty
+// =========================
+
+const klapka = document.getElementById("klapka");
+const list = document.getElementById("list");
+const dalej = document.getElementById("dalej");
+
+let otwarta = false;
+
+document.getElementById("koperta").onclick = function(){
+
+if(otwarta) return;
+
+otwarta = true;
+
+klapka.style.transform = "rotateX(180deg)";
+
+setTimeout(()=>{
+
+list.style.transform = "translateY(-90px)";
+
+},500);
+
+};
+
+// =========================
+// Przejście do filmu
+// =========================
+
+dalej.onclick = function(){
+
+koperta.style.opacity = "0";
+
+setTimeout(()=>{
+
+koperta.style.display = "none";
+
+film.style.display = "flex";
+
+startPokaz();
+
+},800);
+
+};
+// =========================
+// EKRAN FILMU
+// =========================
+
+const film = document.createElement("div");
+
+film.id = "film";
+
+film.style.position = "fixed";
+film.style.left = "0";
+film.style.top = "0";
+film.style.width = "100%";
+film.style.height = "100%";
+film.style.background = "#000";
+film.style.display = "none";
+film.style.justifyContent = "center";
+film.style.alignItems = "center";
+film.style.overflow = "hidden";
+film.style.flexDirection = "column";
+
+document.body.appendChild(film);
+
+// =========================
+// KONIEC
+// =========================
+
+const koniec = document.createElement("h1");
+
+koniec.innerHTML = "hbd bby lovu❤️";
+
+koniec.style.position = "absolute";
+koniec.style.color = "white";
+koniec.style.fontSize = "55px";
+koniec.style.textAlign = "center";
+koniec.style.opacity = "0";
+koniec.style.transition = "1s";
+
+film.appendChild(koniec);
+
+// =========================
+// ZDJĘCIA
+// =========================
+
+const zdjecia = [
+
+"1.jpg",
+"2.jpg",
+"3.jpg",
+"4.jpg",
+"5.jpg",
+"6.jpg",
+"7.jpg",
+"8.jpg",
+"9.jpg",
+"10.jpg",
+"11.jpg",
+"12.jpg",
+"13.jpg",
+"14.jpg",
+"15.jpg",
+"16.jpg",
+"17.jpg",
+"18.jpg",
+"19.jpg",
+"20.jpg"
+
+];
+// =========================
+// POKAZ ZDJĘĆ
+// =========================
+
+let indeks = 0;
+
+function pokazZdjecie() {
+
+    if (indeks >= zdjecia.length) {
+
+        koniec.style.opacity = "1";
+
+        return;
+
     }
 
+    const img = document.createElement("img");
+
+    img.src = zdjecia[indeks];
+
+    img.style.position = "absolute";
+    img.style.width = "260px";
+    img.style.height = "360px";
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "18px";
+    img.style.border = "4px solid white";
+    img.style.boxShadow = "0 0 35px rgba(255,255,255,.25)";
+    img.style.opacity = "0";
+    img.style.transform = "scale(.8)";
+    img.style.transition = "1.2s";
+
+    film.appendChild(img);
+
+    setTimeout(() => {
+
+        img.style.opacity = "1";
+        img.style.transform = "scale(1)";
+
+    }, 100);
+
+    setTimeout(() => {
+
+        img.style.opacity = "0";
+        img.style.transform = "scale(1.15)";
+
+    }, 2600);
+
+    setTimeout(() => {
+
+        img.remove();
+
+    }, 3800);
+
+    indeks++;
+
+    setTimeout(pokazZdjecie, 3000);
+
 }
 
-function serce(){
+// =========================
+// START FILMU
+// =========================
 
-    const h=document.createElement("div");
+function startPokaz() {
 
-    h.className="heart";
-    h.innerHTML=["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+    indeks = 0;
 
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(20+Math.random()*30)+"px";
-    h.style.animationDuration=(4+Math.random()*4)+"s";
+    koniec.style.opacity = "0";
 
-    document.body.appendChild(h);
+    pokazZdjecie();
 
-    setTimeout(()=>h.remove(),8000);
-
-}
-
-setInterval(serce,250);
-
-function gwiazdka(){
-
-    const s=document.createElement("div");
-
-    s.className="star";
-    s.innerHTML="✨";
-
-    s.style.left=Math.random()*100+"vw";
-    s.style.top=Math.random()*100+"vh";
-    s.style.fontSize=(10+Math.random()*20)+"px";
-
-    document.body.appendChild(s);
-
-    setTimeout(()=>s.remove(),2500);
-
-}
-
-setInterval(gwiazdka,300);
-function otworzKoperte(){
-
-    document.querySelector(".gora").style.transform = "rotateX(180deg)";
-
-    document.getElementById("list").style.top = "-80px";
-setTimeout(() => {
-    document.getElementById("list").innerHTML = `
-        <h2> Dla Amelii 🩷</h2>
-        <p>Wszystkiego najlepszego myszko! 🩷</p>
-        <p>Dziękuję, że jesteś. Mam nadzieję, że ten dzień będzie dla Ciebie wyjątkowy. 🩷</p>
-        <p>Kocham Cię! 🩷</p>
-    `;
-}, 1200);
 }
 </script>
 
 </body>
+
 </html>
