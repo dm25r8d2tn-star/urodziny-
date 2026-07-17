@@ -142,6 +142,48 @@ button:hover{
         transform:translateY(110vh) rotate(360deg);
     }
 }
+#koperta{
+    position:relative;
+    width:320px;
+    height:220px;
+    margin:auto;
+    cursor:pointer;
+}
+
+.dol{
+    position:absolute;
+    width:320px;
+    height:170px;
+    bottom:0;
+    background:#ff4f80;
+    border-radius:0 0 15px 15px;
+}
+
+.gora{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:110px solid #ff7aa5;
+    transform-origin:top;
+    transition:1s;
+    z-index:3;
+}
+
+#list{
+    position:absolute;
+    left:20px;
+    top:50px;
+    width:280px;
+    height:150px;
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    transition:1s;
+    z-index:2;
+}
 </style>
 </head>
 
@@ -170,11 +212,29 @@ Otwórz ❤️
 
 <div class="box">
 
-<h1>❤️ Dla Amelii ❤️</h1>
+<div id="koperta" onclick="otworzKoperte()">
 
-<p>Najpiękniejsza dziewczyna na świecie 💖</p>
+<div class="gora"></div>
+
+<div class="dol"></div>
+
+<div id="list">
+
+<h2> Dla Amelii 🩷</h2>
+
+<p>Kliknij jeszcze raz, aby otworzyć list 🩷</p>
 
 </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
 
 </div>
  <script>
@@ -229,7 +289,20 @@ function gwiazdka(){
 }
 
 setInterval(gwiazdka,300);
+function otworzKoperte(){
 
+    document.querySelector(".gora").style.transform = "rotateX(180deg)";
+
+    document.getElementById("list").style.top = "-80px";
+setTimeout(() => {
+    document.getElementById("list").innerHTML = `
+        <h2> Dla Amelii 🩷</h2>
+        <p>Wszystkiego najlepszego myszko! 🩷</p>
+        <p>Dziękuję, że jesteś. Mam nadzieję, że ten dzień będzie dla Ciebie wyjątkowy. 🩷</p>
+        <p>Kocham Cię! 🩷</p>
+    `;
+}, 1200);
+}
 </script>
 
 </body>
